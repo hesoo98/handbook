@@ -11,7 +11,8 @@
     <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Stylish&family=Sunflower&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Stylish&family=Sunflower&display=swap"
+          rel="stylesheet">
     <style>
         html, body {
             height: 100%;
@@ -49,16 +50,19 @@
                     <div class="form-floating">
                         <label class="form-label">핸드폰 번호</label>
                         <p>
-                            <select class="form-control" id="hp1" name="hp1" size="1" style="width:100px; display:inline-block;">
+                            <select class="form-control" id="hp1" name="hp1" size="1"
+                                    style="width:100px; display:inline-block;">
                                 <option value="010" class="hp1">010</option>
                                 <option value="011" class="hp2">011</option>
                                 <option value="016" class="hp3">016</option>
                                 <option value="070" class="hp4">070</option>
                             </select>
                             <span>&nbsp;&nbsp;-&nbsp;&nbsp;</span>
-                            <input type="text" class="form-control" id="hp2" name="hp2" size="3" required="required" style="width:120px; display:inline-block;" required="required">
+                            <input type="text" class="form-control" id="hp2" name="hp2" size="3" required="required"
+                                   style="width:120px; display:inline-block;" required="required">
                             <span>&nbsp;&nbsp;-&nbsp;&nbsp;</span>
-                            <input type="text" class="form-control" id="hp3" name="hp3" size="3" required="required" style="width:120px; display:inline-block;" required="required">
+                            <input type="text" class="form-control" id="hp3" name="hp3" size="3" required="required"
+                                   style="width:120px; display:inline-block;" required="required">
                         </p>
                     </div>
                     <button type="button" class="btn btn-primary btn-block findBtn" onclick="find()">찾기</button>

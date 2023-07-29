@@ -11,8 +11,10 @@
     <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Stylish&family=Sunflower&display=swap" rel="stylesheet">
-    <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Stylish&family=Sunflower&display=swap"
+          rel="stylesheet">
+    <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
+            charset="utf-8"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <style>
         html, body {
@@ -92,11 +94,13 @@
                 <div style="width: 60%; margin: 0 auto;">
                     <form action="/login/loginprocess" method="post">
                         <div class="form-floating">
-                            <input type="text" class="form-control" id="user_id" name="user_id" placeholder="아이디 입력" required="required">
+                            <input type="text" class="form-control" id="user_id" name="user_id" placeholder="아이디 입력"
+                                   required="required">
                         </div>
                         <br>
                         <div class="form-floating">
-                            <input type="password" class="form-control" id="user_pass" name="user_pass" placeholder="비밀번호 입력" required="required">
+                            <input type="password" class="form-control" id="user_pass" name="user_pass"
+                                   placeholder="비밀번호 입력" required="required">
                         </div>
                         <br>
                         <div class="d-grid gap-2">
@@ -106,9 +110,12 @@
 
                         <!-- 외부 로그인 -->
                         <div class="oauth_box_1">
-                            <img src="/image/logobtn/naver.png" onclick="location.href='${urlNaver}'" style="cursor: pointer;">
-                            <img src="/image/logobtn/kakaotalk.png" onclick="location.href='${urlKakao}'" style="cursor: pointer;">
-                            <img src="/image/logobtn/google.png" onclick="location.href='${urlGoogle}'" style="cursor: pointer;">
+                            <img src="/image/logobtn/naver.png" onclick="location.href='${urlNaver}'"
+                                 style="cursor: pointer;">
+                            <img src="/image/logobtn/kakaotalk.png" onclick="location.href='${urlKakao}'"
+                                 style="cursor: pointer;">
+                            <img src="/image/logobtn/google.png" onclick="location.href='${urlGoogle}'"
+                                 style="cursor: pointer;">
                         </div>
                         <br>
                     </form>
@@ -119,7 +126,8 @@
                     </div>
                     <br>
                     <div align="center">
-                        <button type="button" class="btn btn-warning" onclick="location.href='/signupform'">새 계정 만들기</button>
+                        <button type="button" class="btn btn-warning" onclick="location.href='/signupform'">새 계정 만들기
+                        </button>
                     </div>
                 </div>
             </div>
@@ -136,17 +144,24 @@
                         <li><a href="#">FAQ</a></li>
                         <li><a href="#">Legal</a></li>
                         <li><a href="#">Info</a></li>
-                    </ul><br>
+                    </ul>
+                    <br>
 
                     <div class="social mb-4">
                         <h4>Social account</h4><br>
                         <ul class="nav-links mb-5 list-unstyled">
-                            <li><a href="https://github.com/hesoo98"><i class="fa-brands fa-github fa-2xl" style="color: #005eff;"></i></a></li>
-                            <li><a href="https://github.com/JiSungUng"><i class="fa-brands fa-github fa-2xl" style="color: #e46767;"></i></a></li>
-                            <li><a href="https://github.com/woohyung0511"><i class="fa-brands fa-github fa-2xl" style="color: #6958bb;"></i></a></li>
-                            <li><a href="https://github.com/GUWONYezi"><i class="fa-brands fa-github fa-2xl" style="color: #df45cc;"></i></a></li>
-                            <li><a href="https://github.com/experthun"><i class="fa-brands fa-github fa-2xl" style="color: #41be50;"></i></a></li>
-                            <li><a href="https://github.com/seyeonpark12"><i class="fa-brands fa-github fa-2xl" style="color: #989f3c;"></i></a></li>
+                            <li><a href="https://github.com/hesoo98"><i class="fa-brands fa-github fa-2xl"
+                                                                        style="color: #005eff;"></i></a></li>
+                            <li><a href="https://github.com/JiSungUng"><i class="fa-brands fa-github fa-2xl"
+                                                                          style="color: #e46767;"></i></a></li>
+                            <li><a href="https://github.com/woohyung0511"><i class="fa-brands fa-github fa-2xl"
+                                                                             style="color: #6958bb;"></i></a></li>
+                            <li><a href="https://github.com/GUWONYezi"><i class="fa-brands fa-github fa-2xl"
+                                                                          style="color: #df45cc;"></i></a></li>
+                            <li><a href="https://github.com/experthun"><i class="fa-brands fa-github fa-2xl"
+                                                                          style="color: #41be50;"></i></a></li>
+                            <li><a href="https://github.com/seyeonpark12"><i class="fa-brands fa-github fa-2xl"
+                                                                             style="color: #989f3c;"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -156,8 +171,6 @@
 </div>
 
 <script>
-
-
     // 브라우저 화면크기 바뀔 때마다 리로드하지 않고, 중앙에 배치.
     window.onresize = function (event) {
         var windowHeight = window.innerHeight;

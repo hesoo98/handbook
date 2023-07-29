@@ -21,7 +21,6 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class LoginController {
-
     /* NaverLoginBO */
     @Autowired
     private NaverLoginBO naverLoginBO;

@@ -14,7 +14,8 @@
     <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Stylish&family=Sunflower&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Stylish&family=Sunflower&display=swap"
+          rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
@@ -59,62 +60,62 @@
 
                     $.each(res, function (i, item) {
 
-                    	var s = "";
+                        var s = "";
                         var addContent = document.createElement("div");
-                        s += "<div class='allcomment' style='margin-left:"+item.comment_level*70+"px;'>";
-                        
-                        if(item.post_user_num =="${sessionScope.user_num}" || item.user_num == "${sessionScope.user_num}"){
-                           
-                           s += '<div style="height: 0; width: 450px; position: relative; left: -30px; top: 30px;">';
-                            s += '<img src="../image/add.png" class="ulimg" id="ulimg'+item.comment_num+'" style="width: 20px; float: right;" comment_num="'+item.comment_num+'">';
-                            s += '<ul class="list-group commentul" style="height:0; margin-top:10px;" id="ul'+item.comment_num+'">';
-                            if(item.user_num == "${sessionScope.user_num}")
-                               s += '<li class="list-group-item commentmod" comment_num="'+item.comment_num+'">수정</li>';
-                            s += '<li class="list-group-item commentdel" comment_num="'+item.comment_num+'">삭제</li>';
+                        s += "<div class='allcomment' style='margin-left:" + item.comment_level * 70 + "px;'>";
+
+                        if (item.post_user_num == "${sessionScope.user_num}" || item.user_num == "${sessionScope.user_num}") {
+
+                            s += '<div style="height: 0; width: 450px; position: relative; left: -30px; top: 30px;">';
+                            s += '<img src="../image/add.png" class="ulimg" id="ulimg' + item.comment_num + '" style="width: 20px; float: right;" comment_num="' + item.comment_num + '">';
+                            s += '<ul class="list-group commentul" style="height:0; margin-top:10px;" id="ul' + item.comment_num + '">';
+                            if (item.user_num == "${sessionScope.user_num}")
+                                s += '<li class="list-group-item commentmod" comment_num="' + item.comment_num + '">수정</li>';
+                            s += '<li class="list-group-item commentdel" comment_num="' + item.comment_num + '">삭제</li>';
                             s += '</ul>';
-                            s += '<div class="comment" id="commentmod'+item.comment_num+'" style="display:flex; flex-wrap:wrap; visibility: hidden; position:relative; left: 30px; bottom: 30px;">';
-                            s += '<span class="glyphicon glyphicon-remove modclose" comment_num="'+item.comment_num+'" style="position: relative; left:350px;"></span>';
-                            if(item.user_photo != null)
-                            	s += '<div><img src="/photo/'+item.user_photo+'" class="modprofile"></div>';
+                            s += '<div class="comment" id="commentmod' + item.comment_num + '" style="display:flex; flex-wrap:wrap; visibility: hidden; position:relative; left: 30px; bottom: 30px;">';
+                            s += '<span class="glyphicon glyphicon-remove modclose" comment_num="' + item.comment_num + '" style="position: relative; left:350px;"></span>';
+                            if (item.user_photo != null)
+                                s += '<div><img src="/photo/' + item.user_photo + '" class="modprofile"></div>';
                             else
-                            	s += '<div><img src="/image/noimg.png" class="modprofile"></div>';
-                            	
-                            s += '<div><b class="user_name" style="margin-left:-14px;">'+item.user_name+'</b>';
+                                s += '<div><img src="/image/noimg.png" class="modprofile"></div>';
+
+                            s += '<div><b class="user_name" style="margin-left:-14px;">' + item.user_name + '</b>';
                             s += '<br>';
-                           s += '<input type="text" class="inputmod form-control" id="cmmodinput'+item.comment_num+'" style="width: 200px; height:60%; padding:0; margin-left:-14px;" comment_num="'+item.comment_num+'" value="'+item.comment_content+'">';
-                           s += '</div></div>';
-                           s += '</div>';
+                            s += '<input type="text" class="inputmod form-control" id="cmmodinput' + item.comment_num + '" style="width: 200px; height:60%; padding:0; margin-left:-14px;" comment_num="' + item.comment_num + '" value="' + item.comment_content + '">';
+                            s += '</div></div>';
+                            s += '</div>';
                         }
-                        
-                        s += "<div class='comment' style='display:flex; flex-wrap:wrap;' visibility: visible; id='div"+item.comment_num+"'>";
-                        s += '<div><a href="${root}/user/mypage?user_num='+item.user_num+'">';
-                        if(item.user_photo != null)
-                        	s += '<img src="/photo/'+item.user_photo+'" class="profile">';
+
+                        s += "<div class='comment' style='display:flex; flex-wrap:wrap;' visibility: visible; id='div" + item.comment_num + "'>";
+                        s += '<div><a href="${root}/user/mypage?user_num=' + item.user_num + '">';
+                        if (item.user_photo != null)
+                            s += '<img src="/photo/' + item.user_photo + '" class="profile">';
                         else
-                        	s += '<img src="/image/noimg.png" class="profile">';
+                            s += '<img src="/image/noimg.png" class="profile">';
                         s += '</a></div>';
                         s += "<div><b class='user_name'>" + item.user_name + "</b><br>";
                         s += "<span class='spancontent'>" + item.comment_content + "</span></div></div>";
                         s += "<div class='cmlike'>";
 
                         if (item.like_check == 0) {
-                           s += '<span class="glyphicon glyphicon-heart-empty nolike" style="color: red;" comment_num="'+item.comment_num+'"><span style="margin-left:2px; font-size:1.25em;">' + item.like_count + '</span></span>';
+                            s += '<span class="glyphicon glyphicon-heart-empty nolike" style="color: red;" comment_num="' + item.comment_num + '"><span style="margin-left:2px; font-size:1.25em;">' + item.like_count + '</span></span>';
                         } else {
-                           s += '<span class="glyphicon glyphicon-heart yeslike" style="color: red;" comment_num="'+item.comment_num+'"><span style="margin-left:2px; font-size:1.25em;">' + item.like_count + '</span></span>';
+                            s += '<span class="glyphicon glyphicon-heart yeslike" style="color: red;" comment_num="' + item.comment_num + '"><span style="margin-left:2px; font-size:1.25em;">' + item.like_count + '</span></span>';
                         }
-                        
-                        s += "<span class='recontent' comment_num='"+item.comment_num+"'><b style='font-size:0.9em'>답글달기</b></span>";
+
+                        s += "<span class='recontent' comment_num='" + item.comment_num + "'><b style='font-size:0.9em'>답글달기</b></span>";
                         s += "<span class='comment_writeday' style='font-size:0.9em;'>" + item.perTime + "</span></div>";
-                        s += '<form method="post" class="form-inline" id="comment'+item.comment_num+'" style="display: none;">';
+                        s += '<form method="post" class="form-inline" id="comment' + item.comment_num + '" style="display: none;">';
                         s += '<div class="recommentaddform">';
-                        s += "<div style='width: 50px; height: 50px;'></div>"; 
-                        if(${sessionScope.user_photo != null})
-                       		s += '<img src="/photo/${sessionScope.user_photo }" class="recommentprofile">';
-                       	else	
-                       		s += '<img src="/image/noimg.png" class="recommentprofile">';
+                        s += "<div style='width: 50px; height: 50px;'></div>";
+                        if (${sessionScope.user_photo != null})
+                            s += '<img src="/photo/${sessionScope.user_photo }" class="recommentprofile">';
+                        else
+                            s += '<img src="/image/noimg.png" class="recommentprofile">';
                         s += '<input hidden="hidden" /> ';
-                        s += '<input type="text" class="input" name="comment_content" placeholder="댓글을 입력하세요" id="input'+item.comment_num+'">';
-                        s += '<button type="button" class="cminsert" comment_num="'+item.comment_num+'" post_num="'+item.post_num+'" style="margin-left: -40px;"></button>';
+                        s += '<input type="text" class="input" name="comment_content" placeholder="댓글을 입력하세요" id="input' + item.comment_num + '">';
+                        s += '<button type="button" class="cminsert" comment_num="' + item.comment_num + '" post_num="' + item.post_num + '" style="margin-left: -40px;"></button>';
                         s += '</div>';
                         s += '</form></div>';
 
@@ -145,62 +146,62 @@
 
                     $.each(res, function (i, item) {
 
-                    	var s = "";
+                        var s = "";
                         var addContent = document.createElement("div");
-                        s += "<div class='allcomment' style='margin-left:"+item.comment_level*70+"px;'>";
-                        
-                        if(item.post_user_num =="${sessionScope.user_num}" || item.user_num == "${sessionScope.user_num}"){
-                           
-                           s += '<div style="height: 0; width: 450px; position: relative; left: -30px; top: 30px;">';
-                            s += '<img src="../image/add.png" class="ulimg" id="ulimg'+item.comment_num+'" style="width: 20px; float: right;" comment_num="'+item.comment_num+'">';
-                            s += '<ul class="list-group commentul" style="height:0; margin-top:10px;" id="ul'+item.comment_num+'">';
-                            if(item.user_num == "${sessionScope.user_num}")
-                               s += '<li class="list-group-item commentmod" comment_num="'+item.comment_num+'">수정</li>';
-                            s += '<li class="list-group-item commentdel" comment_num="'+item.comment_num+'">삭제</li>';
+                        s += "<div class='allcomment' style='margin-left:" + item.comment_level * 70 + "px;'>";
+
+                        if (item.post_user_num == "${sessionScope.user_num}" || item.user_num == "${sessionScope.user_num}") {
+
+                            s += '<div style="height: 0; width: 450px; position: relative; left: -30px; top: 30px;">';
+                            s += '<img src="../image/add.png" class="ulimg" id="ulimg' + item.comment_num + '" style="width: 20px; float: right;" comment_num="' + item.comment_num + '">';
+                            s += '<ul class="list-group commentul" style="height:0; margin-top:10px;" id="ul' + item.comment_num + '">';
+                            if (item.user_num == "${sessionScope.user_num}")
+                                s += '<li class="list-group-item commentmod" comment_num="' + item.comment_num + '">수정</li>';
+                            s += '<li class="list-group-item commentdel" comment_num="' + item.comment_num + '">삭제</li>';
                             s += '</ul>';
-                            s += '<div class="comment" id="commentmod'+item.comment_num+'" style="display:flex; flex-wrap:wrap; visibility: hidden; position:relative; left: 30px; bottom: 30px;">';
-                            s += '<span class="glyphicon glyphicon-remove modclose" comment_num="'+item.comment_num+'" style="position: relative; left:350px;"></span>';
-                            if(item.user_photo != null)
-                            	s += '<div><img src="/photo/'+item.user_photo+'" class="modprofile"></div>';
+                            s += '<div class="comment" id="commentmod' + item.comment_num + '" style="display:flex; flex-wrap:wrap; visibility: hidden; position:relative; left: 30px; bottom: 30px;">';
+                            s += '<span class="glyphicon glyphicon-remove modclose" comment_num="' + item.comment_num + '" style="position: relative; left:350px;"></span>';
+                            if (item.user_photo != null)
+                                s += '<div><img src="/photo/' + item.user_photo + '" class="modprofile"></div>';
                             else
-                            	s += '<div><img src="/image/noimg.png" class="modprofile"></div>';
-                            	
-                            s += '<div><b class="user_name" style="margin-left:-14px;">'+item.user_name+'</b>';
+                                s += '<div><img src="/image/noimg.png" class="modprofile"></div>';
+
+                            s += '<div><b class="user_name" style="margin-left:-14px;">' + item.user_name + '</b>';
                             s += '<br>';
-                           s += '<input type="text" class="inputmod form-control" id="cmmodinput'+item.comment_num+'" style="width: 200px; height:60%; padding:0; margin-left:-14px;" comment_num="'+item.comment_num+'" value="'+item.comment_content+'">';
-                           s += '</div></div>';
-                           s += '</div>';
+                            s += '<input type="text" class="inputmod form-control" id="cmmodinput' + item.comment_num + '" style="width: 200px; height:60%; padding:0; margin-left:-14px;" comment_num="' + item.comment_num + '" value="' + item.comment_content + '">';
+                            s += '</div></div>';
+                            s += '</div>';
                         }
-                        
-                        s += "<div class='comment' style='display:flex; flex-wrap:wrap;' visibility: visible; id='div"+item.comment_num+"'>";
-                        s += '<div><a href="${root}/user/mypage?user_num='+item.user_num+'">';
-                        if(item.user_photo != null)
-                        	s += '<img src="/photo/'+item.user_photo+'" class="profile">';
+
+                        s += "<div class='comment' style='display:flex; flex-wrap:wrap;' visibility: visible; id='div" + item.comment_num + "'>";
+                        s += '<div><a href="${root}/user/mypage?user_num=' + item.user_num + '">';
+                        if (item.user_photo != null)
+                            s += '<img src="/photo/' + item.user_photo + '" class="profile">';
                         else
-                        	s += '<img src="/image/noimg.png" class="profile">';
+                            s += '<img src="/image/noimg.png" class="profile">';
                         s += '</a></div>';
                         s += "<div><b class='user_name'>" + item.user_name + "</b><br>";
                         s += "<span class='spancontent'>" + item.comment_content + "</span></div></div>";
                         s += "<div class='cmlike'>";
 
                         if (item.like_check == 0) {
-                           s += '<span class="glyphicon glyphicon-heart-empty nolike" style="color: red;" comment_num="'+item.comment_num+'"><span style="margin-left:2px; font-size:1.25em;">' + item.like_count + '</span></span>';
+                            s += '<span class="glyphicon glyphicon-heart-empty nolike" style="color: red;" comment_num="' + item.comment_num + '"><span style="margin-left:2px; font-size:1.25em;">' + item.like_count + '</span></span>';
                         } else {
-                           s += '<span class="glyphicon glyphicon-heart yeslike" style="color: red;" comment_num="'+item.comment_num+'"><span style="margin-left:2px; font-size:1.25em;">' + item.like_count + '</span></span>';
+                            s += '<span class="glyphicon glyphicon-heart yeslike" style="color: red;" comment_num="' + item.comment_num + '"><span style="margin-left:2px; font-size:1.25em;">' + item.like_count + '</span></span>';
                         }
-                        
-                        s += "<span class='recontent' comment_num='"+item.comment_num+"'><b style='font-size:0.9em'>답글달기</b></span>";
+
+                        s += "<span class='recontent' comment_num='" + item.comment_num + "'><b style='font-size:0.9em'>답글달기</b></span>";
                         s += "<span class='comment_writeday' style='font-size:0.9em;'>" + item.perTime + "</span></div>";
-                        s += '<form method="post" class="form-inline" id="comment'+item.comment_num+'" style="display: none;">';
+                        s += '<form method="post" class="form-inline" id="comment' + item.comment_num + '" style="display: none;">';
                         s += '<div class="recommentaddform">';
-                        s += "<div style='width: 50px; height: 50px;'></div>"; 
-                        if(${sessionScope.user_photo != null})
-                       		s += '<img src="/photo/${sessionScope.user_photo }" class="recommentprofile">';
-                       	else	
-                       		s += '<img src="/image/noimg.png" class="recommentprofile">';
+                        s += "<div style='width: 50px; height: 50px;'></div>";
+                        if (${sessionScope.user_photo != null})
+                            s += '<img src="/photo/${sessionScope.user_photo }" class="recommentprofile">';
+                        else
+                            s += '<img src="/image/noimg.png" class="recommentprofile">';
                         s += '<input hidden="hidden" /> ';
-                        s += '<input type="text" class="input" name="comment_content" placeholder="댓글을 입력하세요" id="input'+item.comment_num+'">';
-                        s += '<button type="button" class="cminsert" comment_num="'+item.comment_num+'" guest_num="'+item.guest_num+'" style="margin-left: -40px;"></button>';
+                        s += '<input type="text" class="input" name="comment_content" placeholder="댓글을 입력하세요" id="input' + item.comment_num + '">';
+                        s += '<button type="button" class="cminsert" comment_num="' + item.comment_num + '" guest_num="' + item.guest_num + '" style="margin-left: -40px;"></button>';
                         s += '</div>';
                         s += '</form></div>';
 
@@ -252,37 +253,37 @@
                 }
             });
         }
-        
+
         var ws;
 
-      	//웹소켓 오픈(메시지 알림)
-      	function wsOpen() {
-      		ws = new WebSocket("ws://" + location.host + "/chating");
-      		wsEvt();
-      	}
+        //웹소켓 오픈(메시지 알림)
+        function wsOpen() {
+            ws = new WebSocket("ws://" + location.host + "/chating");
+            wsEvt();
+        }
 
-      	function wsEvt() {
-      		ws.onopen = function(data) {
-      		}
+        function wsEvt() {
+            ws.onopen = function (data) {
+            }
 
-      		//메시지 잘 들어왔을 때 실행하는 내용
-      		ws.onmessage = function(data) {
-      		}
-      	}
+            //메시지 잘 들어왔을 때 실행하는 내용
+            ws.onmessage = function (data) {
+            }
+        }
 
 
         $(function () {
-        	wsOpen();
+            wsOpen();
 
             offset =${offset};
             commentoffset =${commentoffset};
             modalScrollPosition = 0;
-            
-          	//메시지 보내기 누르면 메시지창으로 이동
-        	$(".btnmessage").click(function(){
-        		location.href="../message/main?search_name=${dto.user_name}&search_num=${dto.user_num}";
-        	})
-        	
+
+            //메시지 보내기 누르면 메시지창으로 이동
+            $(".btnmessage").click(function () {
+                location.href = "../message/main?search_name=${dto.user_name}&search_num=${dto.user_num}";
+            })
+
             //스크롤 이벤트
             $(window).scroll(function () {
                 var left_side = $(".left").height();
@@ -294,18 +295,18 @@
                     $(".left").css("top", 0);
                 }
             });
-          	
-          	//예지 추가: 팔로워 목록(나를 팔로우한 사람)
-          	$(".followerListBtn").click(function(){
-          		location.href='../following/followerlist?to_user=${dto.user_num}';
-          	})
-          	
-          	//프사트리거
-        	$(".userphotochangeimg").click(function(){
-        		$("#newphoto").trigger("click");
-        	})
-        	
-        	//예지 추가 끝
+
+            //예지 추가: 팔로워 목록(나를 팔로우한 사람)
+            $(".followerListBtn").click(function () {
+                location.href = '../following/followerlist?to_user=${dto.user_num}';
+            })
+
+            //프사트리거
+            $(".userphotochangeimg").click(function () {
+                $("#newphoto").trigger("click");
+            })
+
+            //예지 추가 끝
 
             //강제 호출
             $("#btnnewcover").click(function () {
@@ -476,10 +477,9 @@
                 var post_access = $("#post_access").val();
                 var post_content = $("#post_content").val();
                 var files = $("#contentphoto")[0].files;
-                var filecheck=$("#contentphoto").val();
-                
+                var filecheck = $("#contentphoto").val();
+
                 var form = new FormData();
-                
 
 
                 for (var i = 0; i < files.length; i++) {
@@ -492,10 +492,10 @@
                     form.append("post_content", post_content);
                     form.append("user_num", owner_num);
 
-                    if(post_content == "" && filecheck == "")
-                    	alert("사진 또는 내용을 입력해주세요");
-                    else{
-                    	$.ajax({
+                    if (post_content == "" && filecheck == "")
+                        alert("사진 또는 내용을 입력해주세요");
+                    else {
+                        $.ajax({
 
                             type: "post",
                             dataType: "text",
@@ -509,17 +509,17 @@
                             }
                         });
                     }
-                    
+
                 } else {
 
                     form.append("guest_content", guest_content);
                     form.append("write_num", write_num);
                     form.append("owner_num", owner_num);
 
-                    if(guest_content == "" && filecheck == "")
-                    	alert("사진 또는 내용을 입력해주세요");
-                    else{
-                    	$.ajax({
+                    if (guest_content == "" && filecheck == "")
+                        alert("사진 또는 내용을 입력해주세요");
+                    else {
+                        $.ajax({
 
                             type: "post",
                             dataType: "text",
@@ -533,7 +533,7 @@
                             }
                         });
                     }
-                  
+
                 }
             })
 
@@ -892,8 +892,8 @@
                         url: "likeinsert",
                         data: {"post_num": post_num, "user_num": user_num},
                         success: function () {
-                        	//게시글 좋아요 알림
-                       	 	ws.send('{"type":"plike","sender_num":"${sessionScope.user_num}","post_num":"'+post_num+'","guest_num":"null"}');
+                            //게시글 좋아요 알림
+                            ws.send('{"type":"plike","sender_num":"${sessionScope.user_num}","post_num":"' + post_num + '","guest_num":"null"}');
                         }
                     })
 
@@ -905,8 +905,8 @@
                         url: "guestlikeinsert",
                         data: {"guest_num": post_num, "user_num": user_num},
                         success: function () {
-                        	//방명록 좋아요 알림
-                       		ws.send('{"type":"plike","sender_num":"${sessionScope.user_num}","guest_num":"'+post_num+'","post_num":"null"}');
+                            //방명록 좋아요 알림
+                            ws.send('{"type":"plike","sender_num":"${sessionScope.user_num}","guest_num":"' + post_num + '","post_num":"null"}');
                         }
                     })
                 }
@@ -980,7 +980,7 @@
                     url: "insertfollowing",
                     data: {"from_user": from_user, "to_user": to_user},
                     success: function () {
-                    	ws.send('{"type":"follow","receiver_num":"'+to_user+'","sender_num":"${sessionScope.user_num}"}');
+                        ws.send('{"type":"follow","receiver_num":"' + to_user + '","sender_num":"${sessionScope.user_num}"}');
                         location.reload();
                     }
                 });
@@ -1289,28 +1289,28 @@
                 $(".btncommentmodal").trigger("click");
 
             })
-            
+
             //예지---
-            
-          //마이페이지 넘어갔을 때 post_num이 넘어온 경우
-        	if("${post_num}"!=""){
-        		$.each($(".img_comment"),function(i,ele){
-        			if($(ele).attr("post_num")=="${post_num}" && $(ele).attr("type")=="post"){
-        				 $(ele).trigger("click");
-        			}
-        		})
-        	}
-        	
-        	//마이페이지 넘어갔을 때 guest_num이 넘어온 경우
-        	if("${guest_num}"!=""){
-        		$.each($(".img_comment"),function(i,ele){
-        			if($(ele).attr("post_num")=="${guest_num}" && $(ele).attr("type")=="guest"){
-        				$(ele).trigger("click");
-        			}
-        		})
-        	}
-            
-            
+
+            //마이페이지 넘어갔을 때 post_num이 넘어온 경우
+            if ("${post_num}" != "") {
+                $.each($(".img_comment"), function (i, ele) {
+                    if ($(ele).attr("post_num") == "${post_num}" && $(ele).attr("type") == "post") {
+                        $(ele).trigger("click");
+                    }
+                })
+            }
+
+            //마이페이지 넘어갔을 때 guest_num이 넘어온 경우
+            if ("${guest_num}" != "") {
+                $.each($(".img_comment"), function (i, ele) {
+                    if ($(ele).attr("post_num") == "${guest_num}" && $(ele).attr("type") == "guest") {
+                        $(ele).trigger("click");
+                    }
+                })
+            }
+
+
             ///예지끝---
 
             //댓글 입력
@@ -1336,12 +1336,12 @@
                             $("#commentinput").val("");
                             commentoffset = 0;
                             scroll(commentoffset, post_num);
-                            setTimeout(function() {
+                            setTimeout(function () {
                                 $(".commentmodal-body").scrollTop(modalScrollPosition);
-                              },400);
+                            }, 400);
                             commentCount(post_num);
-                          	//웹소켓에 댓글 알림 보내기
-                            ws.send('{"type":"post","sender_num":"${sessionScope.user_num}","post_num":"'+post_num+'","guest_num":"null","comment_content":"'+comment_content+'"}');
+                            //웹소켓에 댓글 알림 보내기
+                            ws.send('{"type":"post","sender_num":"${sessionScope.user_num}","post_num":"' + post_num + '","guest_num":"null","comment_content":"' + comment_content + '"}');
                         }
                     })
                 } else {
@@ -1358,12 +1358,12 @@
                             $("#commentinput").val("");
                             commentoffset = 0;
                             guestscroll(commentoffset, guest_num);
-                            setTimeout(function() {
+                            setTimeout(function () {
                                 $(".commentmodal-body").scrollTop(modalScrollPosition);
-                              },400);
+                            }, 400);
                             commentGuestCount(guest_num);
-                          	//웹소켓에 댓글 알림 보내기
-                            ws.send('{"type":"post","sender_num":"${sessionScope.user_num}","guest_num":"'+guest_num+'","post_num":"null","comment_content":"'+comment_content+'"}');
+                            //웹소켓에 댓글 알림 보내기
+                            ws.send('{"type":"post","sender_num":"${sessionScope.user_num}","guest_num":"' + guest_num + '","post_num":"null","comment_content":"' + comment_content + '"}');
                         }
                     })
                 }
@@ -1429,13 +1429,13 @@
                             $("#input" + comment_num).hide();
                             commentoffset = 0;
                             scroll(commentoffset, post_num);
-                            setTimeout(function() {
+                            setTimeout(function () {
                                 $(".commentmodal-body").scrollTop(modalScrollPosition);
-                              },400);
+                            }, 400);
                             commentCount(post_num);
-                            
-                          	//답글 알람
-                          	ws.send('{"type":"comment","sender_num":"${sessionScope.user_num}","comment_num":"'+comment_num+'","comment_content":"'+comment_content+'"}');
+
+                            //답글 알람
+                            ws.send('{"type":"comment","sender_num":"${sessionScope.user_num}","comment_num":"' + comment_num + '","comment_content":"' + comment_content + '"}');
                         }
                     })
                 } else {
@@ -1457,13 +1457,13 @@
                             $("#input" + comment_num).hide();
                             commentoffset = 0;
                             guestscroll(commentoffset, guest_num);
-                            setTimeout(function() {
+                            setTimeout(function () {
                                 $(".commentmodal-body").scrollTop(modalScrollPosition);
-                              },400);
+                            }, 400);
                             commentGuestCount(guest_num);
-                            
-                          	//답글 알람
-                            ws.send('{"type":"comment","sender_num":"${sessionScope.user_num}","comment_num":"'+comment_num+'","comment_content":"'+comment_content+'"}');
+
+                            //답글 알람
+                            ws.send('{"type":"comment","sender_num":"${sessionScope.user_num}","comment_num":"' + comment_num + '","comment_content":"' + comment_content + '"}');
                         }
                     })
                 }
@@ -1502,13 +1502,13 @@
                             $("#input" + comment_num).val("");
                             $("#input" + comment_num).hide();
                             scroll(commentoffset, post_num);
-                            setTimeout(function() {
+                            setTimeout(function () {
                                 $(".commentmodal-body").scrollTop(modalScrollPosition);
-                              },400);
+                            }, 400);
                             commentCount(post_num);
-                            
-                          	//댓글 좋아요 알림
-                      	 	ws.send('{"type":"clike","sender_num":"${sessionScope.user_num}","comment_num":"'+comment_num+'"}');
+
+                            //댓글 좋아요 알림
+                            ws.send('{"type":"clike","sender_num":"${sessionScope.user_num}","comment_num":"' + comment_num + '"}');
                         }
                     });
                 } else {
@@ -1527,13 +1527,13 @@
                             $("#input" + comment_num).val("");
                             $("#input" + comment_num).hide();
                             guestscroll(commentoffset, guest_num);
-                            setTimeout(function() {
+                            setTimeout(function () {
                                 $(".commentmodal-body").scrollTop(modalScrollPosition);
-                              },400);
+                            }, 400);
                             commentGuestCount(guest_num);
-                            
-                         	//댓글 좋아요 알림
-                      	 	ws.send('{"type":"clike","sender_num":"${sessionScope.user_num}","comment_num":"'+comment_num+'"}');
+
+                            //댓글 좋아요 알림
+                            ws.send('{"type":"clike","sender_num":"${sessionScope.user_num}","comment_num":"' + comment_num + '"}');
                         }
                     });
                 }
@@ -1565,9 +1565,9 @@
                             $("#input" + comment_num).val("");
                             $("#input" + comment_num).hide();
                             scroll(commentoffset, post_num);
-                            setTimeout(function() {
+                            setTimeout(function () {
                                 $(".commentmodal-body").scrollTop(modalScrollPosition);
-                              },400);
+                            }, 400);
                             commentCount(post_num);
                         }
                     });
@@ -1588,9 +1588,9 @@
                             $("#input" + comment_num).val("");
                             $("#input" + comment_num).hide();
                             guestscroll(commentoffset, guest_num);
-                            setTimeout(function() {
+                            setTimeout(function () {
                                 $(".commentmodal-body").scrollTop(modalScrollPosition);
-                              },400);
+                            }, 400);
                             commentGuestCount(guest_num);
                         }
                     });
@@ -1619,16 +1619,16 @@
                         $("#input" + comment_num).hide();
                         if (type == "post") {
                             scroll(commentoffset, post_num);
-                            setTimeout(function() {
+                            setTimeout(function () {
                                 $(".commentmodal-body").scrollTop(modalScrollPosition);
-                              },400);
+                            }, 400);
                             commentCount(post_num);
                         } else {
 
                             guestscroll(commentoffset, guest_num);
-                            setTimeout(function() {
+                            setTimeout(function () {
                                 $(".commentmodal-body").scrollTop(modalScrollPosition);
-                              },400);
+                            }, 400);
                             commentGuestCount(guest_num);
                         }
                     }
@@ -1695,14 +1695,14 @@
                             if (type == "post") {
                                 scroll(0, post_num);
                                 commentCount(post_num);
-                                setTimeout(function() {
+                                setTimeout(function () {
                                     $(".commentmodal-body").scrollTop(modalScrollPosition);
-                                  },400);
+                                }, 400);
                             } else {
                                 guestscroll(0, guest_num);
-                                setTimeout(function() {
+                                setTimeout(function () {
                                     $(".commentmodal-body").scrollTop(modalScrollPosition);
-                                  },400);
+                                }, 400);
                                 commentGuestCount(guest_num);
                             }
                         }
@@ -2022,200 +2022,200 @@
         }
 
 
-       /* comment */
-.commentmodal-content {
-	overflow-y: initial !important;
-}
+        /* comment */
+        .commentmodal-content {
+            overflow-y: initial !important;
+        }
 
-.commentmodal-body {
-	height: 740px;
-	overflow-y: auto;
-}
+        .commentmodal-body {
+            height: 740px;
+            overflow-y: auto;
+        }
 
-.comment {
-	width: 400px;
-	border-radius: 20px;
-	padding: 10px;
-	margin-bottom: 10px;
-	background-color: #f6f6f6;
-	margin-left: 50px;
-}
+        .comment {
+            width: 400px;
+            border-radius: 20px;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #f6f6f6;
+            margin-left: 50px;
+        }
 
-.profile {
-	width: 30px;
-	height: 30px;
-	border-radius: 50%;
-	margin-right: 5px;
-	margin-left: -55px;
-}
+        .profile {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 5px;
+            margin-left: -55px;
+        }
 
-.modprofile {
-	width: 30px;
-	height: 30px;
-	border-radius: 50%;
-	margin-right: 5px;
-	margin-left: -69px;
-}
+        .modprofile {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 5px;
+            margin-left: -69px;
+        }
 
-/* 좋아요,댓글,날짜 */
-.cmlike {
-	width: 450px;
-	margin-top: 10px;
-	display: flex;
-	justify-content: space-around;
-}
+        /* 좋아요,댓글,날짜 */
+        .cmlike {
+            width: 450px;
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-around;
+        }
 
-/* 사용자 이름  */
-b.user_name {
-	font-size: 12px;
-	font-weight: bold;
-}
+        /* 사용자 이름  */
+        b.user_name {
+            font-size: 12px;
+            font-weight: bold;
+        }
 
-/* 사용자 댓글  */
-span.content {
-	font-size: 10px;
-}
+        /* 사용자 댓글  */
+        span.content {
+            font-size: 10px;
+        }
 
-#commentaddform {
-	margin-top: 10px;
-	height: 60px;
-	display: flex;
-	justify-content: space-between;
-	align-content: center;
-}
+        #commentaddform {
+            margin-top: 10px;
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-content: center;
+        }
 
-.recommentaddform {
-	margin-top: 7px;
-	width: 450px;
-	height: 60px;
-	display: flex;
-	justify-content: space-between;
-	align-content: center;
-}
+        .recommentaddform {
+            margin-top: 7px;
+            width: 450px;
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-content: center;
+        }
 
-.insertcommentimg {
-	background: url('/image/submit.png') no-repeat center;
-	background-size: cover;
-	width: 50px;
-	border: none;
-	cursor: pointer;
-}
+        .insertcommentimg {
+            background: url('/image/submit.png') no-repeat center;
+            background-size: cover;
+            width: 50px;
+            border: none;
+            cursor: pointer;
+        }
 
-#commentprofile {
-	width: 45px;
-	height: 45px;
-	border-radius: 50%;
-	margin-left: 20px;
-	margin-top: 7px;
-}
+        #commentprofile {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            margin-left: 20px;
+            margin-top: 7px;
+        }
 
-.recommentprofile {
-	width: 30px;
-	height: 30px;
-	border-radius: 50%;
-}
+        .recommentprofile {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
 
-.input {
-	flex: 1;
-	height: 40px;
-	border: none;
-	outline: none;
-	border-radius: 20px;
-	padding: 5px 10px;
-	background-color: #f6f6f6;
-	margin-right: 3px;
-}
+        .input {
+            flex: 1;
+            height: 40px;
+            border: none;
+            outline: none;
+            border-radius: 20px;
+            padding: 5px 10px;
+            background-color: #f6f6f6;
+            margin-right: 3px;
+        }
 
-.mominput {
-	width: 700px;
-	border: none;
-	outline: none;
-	border-radius: 40px;
-	background-color: #f6f6f6;
-}
+        .mominput {
+            width: 700px;
+            border: none;
+            outline: none;
+            border-radius: 40px;
+            background-color: #f6f6f6;
+        }
 
-.recontent, .nolike, .yeslike {
-	color: #777;
-	cursor: pointer;
-}
+        .recontent, .nolike, .yeslike {
+            color: #777;
+            cursor: pointer;
+        }
 
-.cminsert {
-	background: url(/image/submit.png) no-repeat center;
-	background-size: cover;
-	width: 25px;
-	height: 35px;
-	border: none;
-	cursor: pointer;
-	margin-top: 2px;
-}
+        .cminsert {
+            background: url(/image/submit.png) no-repeat center;
+            background-size: cover;
+            width: 25px;
+            height: 35px;
+            border: none;
+            cursor: pointer;
+            margin-top: 2px;
+        }
 
-.commentul {
-	position: absolute;
-	top: 20px;
-	right: 0;
-	list-style: none;
-	display: none;
-	font-size: 0.7em;
-	width: 70px;
-	padding: 0;
-	margin: 0;
-	border: none;
-}
+        .commentul {
+            position: absolute;
+            top: 20px;
+            right: 0;
+            list-style: none;
+            display: none;
+            font-size: 0.7em;
+            width: 70px;
+            padding: 0;
+            margin: 0;
+            border: none;
+        }
 
-.commentul:before {
-	content: "";
-	position: absolute;
-	top: -15px;
-	right: -1px;
-	border-top: 10px solid transparent;
-	border-right: 10px solid transparent;
-	border-bottom: 10px solid #e6f0fb;
-	border-left: 16px solid transparent;
-}
+        .commentul:before {
+            content: "";
+            position: absolute;
+            top: -15px;
+            right: -1px;
+            border-top: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid #e6f0fb;
+            border-left: 16px solid transparent;
+        }
 
-.commentul li {
-	border: none;
-	background-color: #e6f0fb;
-	cursor: pointer;
-	padding: 8px 12px;
-	transition: background-color 0.3s, color 0.3s;
-	text-align: center;
-}
+        .commentul li {
+            border: none;
+            background-color: #e6f0fb;
+            cursor: pointer;
+            padding: 8px 12px;
+            transition: background-color 0.3s, color 0.3s;
+            text-align: center;
+        }
 
-.commentul li:not(:last-child) {
-	margin-bottom: -1px;
-}
+        .commentul li:not(:last-child) {
+            margin-bottom: -1px;
+        }
 
-.commentul li:hover {
-	background-color: #cfe0fa;
-	color: #3355a0;
-}
+        .commentul li:hover {
+            background-color: #cfe0fa;
+            color: #3355a0;
+        }
 
-.ulimg {
-	cursor: pointer;
-}
+        .ulimg {
+            cursor: pointer;
+        }
 
-.commentmod, .commentdel {
-	padding: 5px;
-	font-size: 12px;
-	color: #555;
-}
+        .commentmod, .commentdel {
+            padding: 5px;
+            font-size: 12px;
+            color: #555;
+        }
 
-.commentmod:hover, .commentdel:hover {
-	color: #333;
-}
+        .commentmod:hover, .commentdel:hover {
+            color: #333;
+        }
 
-.comment .allcomment {
-	margin-left: 50px;
-}
+        .comment .allcomment {
+            margin-left: 50px;
+        }
 
-.comment .comment {
-	margin-left: 50px;
-}
+        .comment .comment {
+            margin-left: 50px;
+        }
 
-.modclose {
-	cursor: pointer;
-}
+        .modclose {
+            cursor: pointer;
+        }
 
     </style>
 </head>
@@ -2247,7 +2247,8 @@ span.content {
                             </c:if>
 
                             <c:if test="${sessionScope.loginok!=null &&  dto.user_photo==null}">
-                                <img src="${root }/image/profile.png" id="showphoto" style="width: 180px; height: 180px; border-radius: 90px; margin: 3% 34%;">
+                                <img src="${root }/image/profile.png" id="showphoto"
+                                     style="width: 180px; height: 180px; border-radius: 90px; margin: 3% 34%;">
                             </c:if>
 
                         </div>
@@ -2260,11 +2261,13 @@ span.content {
 
                         <div class="modal-cover">
                             <c:if test="${sessionScope.loginok!=null &&  dto.user_cover!=null}">
-                                <img src="${root }/cover/${dto.user_cover}" id="showcover" style="width: 400px; height: 150px; border-radius: 10px; margin: 3% 16%;">
+                                <img src="${root }/cover/${dto.user_cover}" id="showcover"
+                                     style="width: 400px; height: 150px; border-radius: 10px; margin: 3% 16%;">
                             </c:if>
 
                             <c:if test="${sessionScope.loginok!=null &&  dto.user_cover==null}">
-                                <img src="${root }/image/cover.png" id="showcover" style="width: 400px; height: 150px; border-radius: 10px; margin: 3% 16%;">
+                                <img src="${root }/image/cover.png" id="showcover"
+                                     style="width: 400px; height: 150px; border-radius: 10px; margin: 3% 16%;">
                             </c:if>
                         </div>
                     </div>
@@ -2275,13 +2278,18 @@ span.content {
                     <div class="modal-intro" style="margin-top: 2%;">
                         <span><b>주소</b></span>
                         <div class="addr">
-                            <input id="member_addr" style="width: 250px; margin-bottom: 1%;" name="addr1" type="text" placeholder="주소" readonly required="required"
+                            <input id="member_addr" style="width: 250px; margin-bottom: 1%;" name="addr1" type="text"
+                                   placeholder="주소" readonly required="required"
                                    value="${dto.user_addr.split(',')[0]}">&nbsp;&nbsp;
-                            <button type="button" onclick="findAddr()" style="border: none; border-radius: 5px; width: 55px; padding: 4px; font-weight: bold;">검색</button>
+                            <button type="button" onclick="findAddr()"
+                                    style="border: none; border-radius: 5px; width: 55px; padding: 4px; font-weight: bold;">
+                                검색
+                            </button>
                             <br>
 
 
-                            <input type="text" id="member_addr2" name="addr2" style="width: 250px; margin-bottom: 2%;" placeholder="상세주소" value="${dto.user_addr.split(',')[1]}">
+                            <input type="text" id="member_addr2" name="addr2" style="width: 250px; margin-bottom: 2%;"
+                                   placeholder="상세주소" value="${dto.user_addr.split(',')[1]}">
                         </div>
 
                         <span><b>전화번호</b></span>
@@ -2303,14 +2311,18 @@ span.content {
                         </div>
                         <span><b>비밀번호</b></span>
                         <div class="password">
-                            <button type="button" class="btn btn-primary" onclick="location.href='/user/moveupdatepassword'">비밀번호 수정</button>
+                            <button type="button" class="btn btn-primary"
+                                    onclick="location.href='/user/moveupdatepassword'">비밀번호 수정
+                            </button>
                         </div>
                     </div>
 
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal" id="btnupdate" num="${dto.user_num }">정보 수정</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="btnupdate"
+                            num="${dto.user_num }">정보 수정
+                    </button>
                 </div>
             </div>
         </div>
@@ -2330,7 +2342,8 @@ span.content {
             <div class="modal-body">
                 <div style="margin-bottom: 2%; display: flex; align-items: center;">
                     <c:if test="${sessionScope.user_num==dto.user_num }">
-                        <img alt="" src="${root }/photo/${dto.user_photo}" style="width: 40px; height: 40px; border-radius: 20px;">
+                        <img alt="" src="${root }/photo/${dto.user_photo}"
+                             style="width: 40px; height: 40px; border-radius: 20px;">
                         <div style="margin-left: 2%;">
                             <span style="font-size: 11pt;"><b>${dto.user_name }</b></span><br>
 
@@ -2340,7 +2353,8 @@ span.content {
                     </c:if>
 
                     <c:if test="${sessionScope.user_num!=dto.user_num }">
-                        <img alt="" src="${root }/photo/${sessionScope.user_photo}" style="width: 40px; height: 40px; border-radius: 20px;">
+                        <img alt="" src="${root }/photo/${sessionScope.user_photo}"
+                             style="width: 40px; height: 40px; border-radius: 20px;">
                         <div style="margin-left: 2%;">
                             <span style="font-size: 11pt;"><b>${sessionScope.name }</b></span><br>
 
@@ -2349,20 +2363,24 @@ span.content {
                         </div>
                     </c:if>
                 </div>
-                <textarea id="update_content" placeholder="무슨 생각을 하고 계신가요?" style="width: 100%; height:100%; border: none; outline: none;  resize: none;"></textarea>
+                <textarea id="update_content" placeholder="무슨 생각을 하고 계신가요?"
+                          style="width: 100%; height:100%; border: none; outline: none;  resize: none;"></textarea>
 
                 <div id="showmodimg" style="border-radius: 10px;"></div>
                 <br>
 
 
-                <input type="file" name="update_file" class="form-control" required="required" multiple="multiple" id="update_file" style="display: none;">
+                <input type="file" name="update_file" class="form-control" required="required" multiple="multiple"
+                       id="update_file" style="display: none;">
 
                 <button type="button" id="btnmodcontentphoto">사진/동영상 선택</button>
                 <button type="button" id="remove_photo_btn" style="outline: none;">사진 모두 지우기</button>
             </div>
 
             <div class="modal-footer" style="text-align: center;">
-                <button type="button" class="btn btn-default" data-dismiss="modal" id="btnupdate2" style="background-color: #3578E5; width: 30%; color: white;">수정</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="btnupdate2"
+                        style="background-color: #3578E5; width: 30%; color: white;">수정
+                </button>
                 <button type="button" class="btn btn-default" data-dismiss="modal" style="width: 30%;">Close</button>
             </div>
         </div>
@@ -2387,12 +2405,14 @@ span.content {
                     <c:if test="${sessionScope.user_num==dto.user_num }">
                         <div style="margin-bottom: 2%; display: flex; align-items: center;">
 
-                            <img src="${root }/photo/${dto.user_photo}" style="width: 40px; height: 40px; border-radius: 20px;">
+                            <img src="${root }/photo/${dto.user_photo}"
+                                 style="width: 40px; height: 40px; border-radius: 20px;">
 
                             <div style="margin-left: 2%;">
                                 <span style="font-size: 11pt;"><b>${dto.user_name }</b></span><br>
 
-                                <select class="form-control" name="post_access" id="post_access" style="background-color: #F0F2F5;">
+                                <select class="form-control" name="post_access" id="post_access"
+                                        style="background-color: #F0F2F5;">
                                     <option value="all">전체공개</option>
                                     <option value="follower">팔로워 공개</option>
                                     <option value="onlyme">나만보기</option>
@@ -2405,24 +2425,32 @@ span.content {
                     <c:if test="${sessionScope.user_num!=dto.user_num }">
                         <div style="margin-bottom: 2%; display: flex; align-items: center;">
 
-                            <img src="${root }/photo/${sessionScope.user_photo}" style="width: 40px; height: 40px; border-radius: 20px;">
+                            <img src="${root }/photo/${sessionScope.user_photo}"
+                                 style="width: 40px; height: 40px; border-radius: 20px;">
 
                             <div style="margin-left: 2%;">
                                 <span style="font-size: 11pt;"><b>${sessionScope.name }</b></span><br>
 
-                                <span style="border-radius: 5px; padding: 4px; background-color: #F0F2F5;"><b><i class="fa-solid fa-user-group"></i>팔로워 공개</b></span>
+                                <span style="border-radius: 5px; padding: 4px; background-color: #F0F2F5;"><b><i
+                                        class="fa-solid fa-user-group"></i>팔로워 공개</b></span>
 
                             </div>
                         </div>
                     </c:if>
 
                     <div style="height: 150px;">
-                        <textarea id="post_content" placeholder="무슨 생각을 하고 계신가요?" style="width: 100%; height:100%; border: none; outline: none;  resize: none;"></textarea>
+                        <textarea id="post_content" placeholder="무슨 생각을 하고 계신가요?"
+                                  style="width: 100%; height:100%; border: none; outline: none;  resize: none;"></textarea>
                     </div>
                     <div class="show" id="show" style="position: relative;">
-                        <img id="showimg" style="display:none; width: 500px; height: 150px; border: 1px solid gray; border-radius: 10px;"><br>
-                        <video id="showvideo" style="display: none; width: 500px; height: 150px; border: 1px solid gray; border-radius: 10px;" controls="controls"></video>
-                        <p id="showtext" style="display:none; position: absolute; top: 65px; left: 190px; font-weight: bold;">사진/동영상 추가</p>
+                        <img id="showimg"
+                             style="display:none; width: 500px; height: 150px; border: 1px solid gray; border-radius: 10px;"><br>
+                        <video id="showvideo"
+                               style="display: none; width: 500px; height: 150px; border: 1px solid gray; border-radius: 10px;"
+                               controls="controls"></video>
+                        <p id="showtext"
+                           style="display:none; position: absolute; top: 65px; left: 190px; font-weight: bold;">사진/동영상
+                            추가</p>
                     </div>
 
                     <input type="file" multiple="multiple" id="contentphoto" name="contentphoto" style="display: none;">
@@ -2432,7 +2460,9 @@ span.content {
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal" id="btnwrite" num="${dto.user_num }">게시</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="btnwrite"
+                            num="${dto.user_num }">게시
+                    </button>
                 </div>
 
             </div>
@@ -2443,7 +2473,8 @@ span.content {
 </div>
 
 <!-- 댓글 -->
-<button type="button" class="btn btn-info btn-lg btncommentmodal hide" data-toggle="modal" data-target="#commentmodal"></button>
+<button type="button" class="btn btn-info btn-lg btncommentmodal hide" data-toggle="modal"
+        data-target="#commentmodal"></button>
 <!-- comment -->
 <div id="commentmodal" class="modal fade" role="dialog">
     <div class="modal-dialog modal-lg">
@@ -2470,15 +2501,16 @@ span.content {
                     <input type="hidden" name="guest_num" id="inputhidden-guest_num">
                     <div id="commentaddform">
                         <c:if test="${sessionScope.user_photo != null }">
-									<img src="/photo/${sessionScope.user_photo }" id="commentprofile">
-								</c:if>
-								<c:if test="${sessionScope.user_photo == null }">
-									<img src="/image/noimg.png" id="commentprofile">
-								</c:if>
+                            <img src="/photo/${sessionScope.user_photo }" id="commentprofile">
+                        </c:if>
+                        <c:if test="${sessionScope.user_photo == null }">
+                            <img src="/image/noimg.png" id="commentprofile">
+                        </c:if>
                         <input hidden="hidden"/>
-                        <input type="text" class="mominput" name="comment_content" placeholder="댓글을 입력하세요" id="commentinput">
+                        <input type="text" class="mominput" name="comment_content" placeholder="댓글을 입력하세요"
+                               id="commentinput">
                         <button type="button" id="insertcommentbtn" class="insertcommentimg"
-									style="margin-right: 20px;"></button>
+                                style="margin-right: 20px;"></button>
                     </div>
                 </form>
             </div>
@@ -2490,15 +2522,15 @@ span.content {
 
     <div class="cover">
 
-	<div style="width: 100%; height: 100%; overflow: hidden;">
-        <c:if test="${sessionScope.loginok!=null && dto.user_cover!=null }">
-            <img src="${root }/cover/${dto.user_cover }" style="width: 100%; height: 100%; object-fit:cover;">
-        </c:if>
+        <div style="width: 100%; height: 100%; overflow: hidden;">
+            <c:if test="${sessionScope.loginok!=null && dto.user_cover!=null }">
+                <img src="${root }/cover/${dto.user_cover }" style="width: 100%; height: 100%; object-fit:cover;">
+            </c:if>
 
-        <c:if test="${sessionScope.loginok!=null && dto.user_cover==null }">
-            <img src="${root }/image/cover.png" style="width: 100%; height: 100%; object-fit:cover;">
-        </c:if>
-	</div>
+            <c:if test="${sessionScope.loginok!=null && dto.user_cover==null }">
+                <img src="${root }/image/cover.png" style="width: 100%; height: 100%; object-fit:cover;">
+            </c:if>
+        </div>
         <input type="file" id="newcover" style="display: none;" num="${dto.user_num }">
 
         <!-- 수정 시 호출 -->
@@ -2515,49 +2547,53 @@ span.content {
             <input type="file" id="newphoto" style="display: none;" num="${dto.user_num }">
 
             <c:if test="${sessionScope.loginok!=null && dto.user_photo!=null }">
-            	<div data-toggle="dropdown" style="position: relative; left: 250px; bottom: 80px; width: 180px; height: 180px; 
+                <div data-toggle="dropdown" style="position: relative; left: 250px; bottom: 80px; width: 180px; height: 180px;
             	display: inline-flex; overflow: hidden; border: 3px solid gray; border-radius: 100px">
-                <img alt="" src="${root }/photo/${dto.user_photo}"
-                     style="width: 100%; height: 100%; object-fit:cover; cursor: pointer;">
+                    <img alt="" src="${root }/photo/${dto.user_photo}"
+                         style="width: 100%; height: 100%; object-fit:cover; cursor: pointer;">
                 </div>
             </c:if>
 
             <c:if test="${sessionScope.loginok!=null && dto.user_photo==null }">
-            	<div data-toggle="dropdown" style="position: relative; left: 250px; bottom: 80px; width: 180px; height: 180px; 
+                <div data-toggle="dropdown" style="position: relative; left: 250px; bottom: 80px; width: 180px; height: 180px;
             	display: inline-flex; overflow: hidden; border-radius: 100px">
-                <img alt="" src="${root }/image/profile.png"
-                     style="width: 100%; height: 100%; object-fit:cover; cursor: pointer;">
-                </div>
-            </c:if>
-            
-            <c:if test="${sessionScope.user_num==dto.user_num }">
-            	<div style="display: inline-flex; position: relative; left: 195px; bottom: 80px;">
-            	<img alt="" src="${root }/image/camera.png" style="width: 50px; height: 50px; cursor: pointer;" class="userphotochangeimg">
-                </div>
-            </c:if>
-            <c:if test="${sessionScope.user_num!=dto.user_num }">
-            	<div style="display: inline-flex; position: relative; left: 195px; bottom: 80px; 
-            	visibility: hidden;">
-            	<img alt="" src="${root }/image/camera.png" style="width: 50px; height: 50px; cursor: pointer;" class="userphotochangeimg">
+                    <img alt="" src="${root }/image/profile.png"
+                         style="width: 100%; height: 100%; object-fit:cover; cursor: pointer;">
                 </div>
             </c:if>
 
-			<div style="display: inline-flex; flex-direction:column; position: relative; left: 200px; bottom: 120px;">
-            <span style="font-size: 22pt; font-weight: bold;">${dto.user_name }</span>
-            <span style="font-size: 13pt; font-weight: bold; color:#65676b;">
-                     <a href="${root }/following/followlist?from_user=${dto.user_num}" style="color: #65676b;">친구 ${tf_count}명 </a>
+            <c:if test="${sessionScope.user_num==dto.user_num }">
+                <div style="display: inline-flex; position: relative; left: 195px; bottom: 80px;">
+                    <img alt="" src="${root }/image/camera.png" style="width: 50px; height: 50px; cursor: pointer;"
+                         class="userphotochangeimg">
+                </div>
+            </c:if>
+            <c:if test="${sessionScope.user_num!=dto.user_num }">
+                <div style="display: inline-flex; position: relative; left: 195px; bottom: 80px;
+            	visibility: hidden;">
+                    <img alt="" src="${root }/image/camera.png" style="width: 50px; height: 50px; cursor: pointer;"
+                         class="userphotochangeimg">
+                </div>
+            </c:if>
+
+            <div style="display: inline-flex; flex-direction:column; position: relative; left: 200px; bottom: 120px;">
+                <span style="font-size: 22pt; font-weight: bold;">${dto.user_name }</span>
+                <span style="font-size: 13pt; font-weight: bold; color:#65676b;">
+                     <a href="${root }/following/followlist?from_user=${dto.user_num}"
+                        style="color: #65676b;">친구 ${tf_count}명 </a>
                      </span>
             </div>
 
 
             <ul class="dropdown-menu" style="position: absolute; left: 200px; top: 100px;">
-            	<c:if test="${dto.user_photo==null }">
-            		<li><a href="${root }/image/noimg.png" target="_new" style="text-decoration: none; outline: none;">프로필
-                    사진 보기</a></li>
-            	</c:if>
-            	<c:if test="${dto.user_photo!=null }">
-                	<li><a href="${root }/photo/${dto.user_photo}" target="_new" style="text-decoration: none; outline: none;">프로필
-                    사진 보기</a></li>
+                <c:if test="${dto.user_photo==null }">
+                    <li><a href="${root }/image/noimg.png" target="_new" style="text-decoration: none; outline: none;">프로필
+                        사진 보기</a></li>
+                </c:if>
+                <c:if test="${dto.user_photo!=null }">
+                    <li><a href="${root }/photo/${dto.user_photo}" target="_new"
+                           style="text-decoration: none; outline: none;">프로필
+                        사진 보기</a></li>
                 </c:if>
                 <c:if test="${sessionScope.user_num==dto.user_num }">
                     <li><a href="#" id="btnnewphoto">프로필 사진 업데이트</a></li>
@@ -2568,13 +2604,15 @@ span.content {
         <div style="float:right; margin-right: 3%; margin-top: 2%;">
             <c:if test="${sessionScope.user_num!=dto.user_num && checkfollowing !=1 }">
                 <c:if test="${checkfollower ==1 }">
-                    <button type="button" class="btnfollow" id="btnfollow" from_user="${sessionScope.user_num }" to_user="${dto.user_num }">
+                    <button type="button" class="btnfollow" id="btnfollow" from_user="${sessionScope.user_num }"
+                            to_user="${dto.user_num }">
                         <i class="fa-solid fa-user-group"></i>&nbsp;맞팔로우 하기
                     </button>
                 </c:if>
 
                 <c:if test="${checkfollower !=1 }">
-                    <button type="button" class="btnfollow" id="btnfollow" from_user="${sessionScope.user_num }" to_user="${dto.user_num }">
+                    <button type="button" class="btnfollow" id="btnfollow" from_user="${sessionScope.user_num }"
+                            to_user="${dto.user_num }">
                         <i class="fa-solid fa-user-group"></i>&nbsp;팔로우 하기
                     </button>
                 </c:if>
@@ -2594,12 +2632,13 @@ span.content {
                 </c:if>
             </c:if>
 
-			<c:if test="${sessionScope.user_num!=dto.user_num }">
-            <button type="button" class="btnmessage"><i class="fa-solid fa-comment"></i>&nbsp;메시지 보내기</button>
-			</c:if>
+            <c:if test="${sessionScope.user_num!=dto.user_num }">
+                <button type="button" class="btnmessage"><i class="fa-solid fa-comment"></i>&nbsp;메시지 보내기</button>
+            </c:if>
 
             <c:if test="${sessionScope.user_num==dto.user_num }">
-                <button type="button" class="btnprofile" data-toggle="modal" data-target="#infoupdate" style="border-radius: 5px; border: none;">
+                <button type="button" class="btnprofile" data-toggle="modal" data-target="#infoupdate"
+                        style="border-radius: 5px; border: none;">
                     <i class="fa-solid fa-pencil fa-xl - 1.5em - 24px"></i>&nbsp;&nbsp;프로필 편집
                 </button>
             </c:if>
@@ -2620,10 +2659,12 @@ span.content {
             <div class="intro">
                 <span><b style="font-size: 16pt;">소개</b></span>
                 <div class="intro-info">
-                    <span>&nbsp;<i class="fa-solid fa-house fa-2x - 2em"></i>&nbsp;&nbsp;&nbsp;&nbsp;<b>${dto.user_addr.replaceAll(',', ' ') }</b>&nbsp;&nbsp;</span><br>
+                    <span>&nbsp;<i
+                            class="fa-solid fa-house fa-2x - 2em"></i>&nbsp;&nbsp;&nbsp;&nbsp;<b>${dto.user_addr.replaceAll(',', ' ') }</b>&nbsp;&nbsp;</span><br>
                     <span>&nbsp;&nbsp;<i class="fa-solid fa-location-dot  fa-2x - 2em"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>${dto.user_addr.substring(0, 2)}</b>&nbsp;&nbsp;출신</span><br>
                     <span class="followerListBtn" style="cursor: pointer;"><i class="fa-solid fa-wifi fa-2x - 2em"></i>&nbsp;&nbsp;&nbsp;&nbsp;<b>${followercount }</b>&nbsp;&nbsp;명이 팔로우함</span><br>
-                    <span>&nbsp;<i class="fa-solid fa-envelope fa-2x - 2em"></i>&nbsp;&nbsp;&nbsp;&nbsp;<b>${dto.user_email }</b>&nbsp;&nbsp;</span><br>
+                    <span>&nbsp;<i
+                            class="fa-solid fa-envelope fa-2x - 2em"></i>&nbsp;&nbsp;&nbsp;&nbsp;<b>${dto.user_email }</b>&nbsp;&nbsp;</span><br>
                     <span>&nbsp;&nbsp;<i class="fa-solid fa-mobile-screen-button fa-2x - 2em"></i>&nbsp;&nbsp;&nbsp;&nbsp;<b>${dto.user_hp}</b>&nbsp;&nbsp;</span>
                 </div>
             </div>
@@ -2637,11 +2678,13 @@ span.content {
                             <c:if test="${!fn:contains(pdto.post_file, '.mp4')}">
                                 <c:forEach var="file" items="${fn:split(pdto.post_file, ',')}" varStatus="j">
                                     <c:if test="${j.count <= 9 - counter}">
-                                    <div style="overflow: hidden;" class="galary-photo galary-photo-${j.count}">
-                                        <a href="${root}/post_file/${file}" target="_new" style="text-decoration: none; outline: none;">
-                                            <img src="${root}/post_file/${file}" style="object-fit:cover; width: 100%; height: 100%">
-                                        </a>
-                                    </div>
+                                        <div style="overflow: hidden;" class="galary-photo galary-photo-${j.count}">
+                                            <a href="${root}/post_file/${file}" target="_new"
+                                               style="text-decoration: none; outline: none;">
+                                                <img src="${root}/post_file/${file}"
+                                                     style="object-fit:cover; width: 100%; height: 100%">
+                                            </a>
+                                        </div>
                                         <c:set var="counter" value="${counter + 1}"/>
                                     </c:if>
                                 </c:forEach>
@@ -2650,11 +2693,12 @@ span.content {
                             <c:if test="${fn:contains(pdto.post_file, '.mp4')}">
                                 <c:forEach var="file" items="${fn:split(pdto.post_file, ',')}" varStatus="j">
                                     <c:if test="${j.count <= 9 - counter}">
-                                    <div style="overflow: hidden;" class="galary-video galary-video-${j.count}">
-                                        <video src="/post_file/${file}" controls="controls" 
-                                        muted="muted" style="width: 100%; height: 100%; obejct-fit: cover;"></video>
-                                        <c:set var="counter" value="${counter + 1}"/>
-                                    </div>
+                                        <div style="overflow: hidden;" class="galary-video galary-video-${j.count}">
+                                            <video src="/post_file/${file}" controls="controls"
+                                                   muted="muted"
+                                                   style="width: 100%; height: 100%; obejct-fit: cover;"></video>
+                                            <c:set var="counter" value="${counter + 1}"/>
+                                        </div>
                                     </c:if>
                                 </c:forEach>
                             </c:if>
@@ -2673,15 +2717,17 @@ span.content {
                     <c:forEach var="fdto" items="${tflist }" varStatus="i">
                         <div style="margin: 1% 1% 0.25% 1%;">
                             <div>
-                            	<div class="friend-photo" style="overflow: hidden;">
-	                                <c:if test="${ fdto.user_photo!=null }">
-	                                    <a href="${root }/user/mypage?user_num=${fdto.user_num}"><img src="${root }/photo/${fdto.user_photo}" 
-	                                    style="width: 100%; height: 100%; object-fit:cover;"></a>
-	                                </c:if>
-	                                <c:if test="${fdto.user_photo==null }">
-	                                    <a href="${root }/user/mypage?user_num=${fdto.user_num}"><img src="${root }/image/noprofile.png" 
-	                                    style="width: 100%; height: 100%; object-fit:cover;"></a>
-	                                </c:if>
+                                <div class="friend-photo" style="overflow: hidden;">
+                                    <c:if test="${ fdto.user_photo!=null }">
+                                        <a href="${root }/user/mypage?user_num=${fdto.user_num}"><img
+                                                src="${root }/photo/${fdto.user_photo}"
+                                                style="width: 100%; height: 100%; object-fit:cover;"></a>
+                                    </c:if>
+                                    <c:if test="${fdto.user_photo==null }">
+                                        <a href="${root }/user/mypage?user_num=${fdto.user_num}"><img
+                                                src="${root }/image/noprofile.png"
+                                                style="width: 100%; height: 100%; object-fit:cover;"></a>
+                                    </c:if>
                                 </div>
                                 <div>
                                     <span><b>${fdto.user_name }</b></span><br>
@@ -2701,15 +2747,17 @@ span.content {
                 <div class="searcharea">
                     <div style="width: 800px; display: inline-flex; align-items: center; margin-left: 20px; overflow: hidden;">
                         <c:if test="${sessionScope.user_num!=dto.user_num }">
-                        	<div style="width: 40px; height: 40px; border-radius: 100px;">
-                            	<img alt="" src="${root }/photo/${sessionScope.user_photo}" style="object-fit: cover; height: 100%; width: 100%;">
+                            <div style="width: 40px; height: 40px; border-radius: 100px;">
+                                <img alt="" src="${root }/photo/${sessionScope.user_photo}"
+                                     style="object-fit: cover; height: 100%; width: 100%;">
                             </div>
                             &nbsp;&nbsp;&nbsp;
                         </c:if>
 
                         <c:if test="${sessionScope.user_num==dto.user_num }">
-                        	<div style="width: 40px; height: 40px; border-radius: 100px; overflow: hidden;">
-                            	<img alt="" src="${root }/photo/${dto.user_photo}" style="object-fit: cover; height: 100%; width: 100%;">
+                            <div style="width: 40px; height: 40px; border-radius: 100px; overflow: hidden;">
+                                <img alt="" src="${root }/photo/${dto.user_photo}"
+                                     style="object-fit: cover; height: 100%; width: 100%;">
                             </div>
                             &nbsp;&nbsp;&nbsp;
                         </c:if>
@@ -2717,14 +2765,16 @@ span.content {
                         <c:if test="${sessionScope.user_num==dto.user_num }">
                             <div style="background-color: #F0F2F5; border-radius: 60px; padding-left: 2%">
                                 <input type="button" data-toggle="modal" data-target="#contentwrite" name="contentwirte"
-                                       style="width:700px; border: none; text-align:left; background: none; outline: none; font-size: 15pt; padding: 10px;" value="무슨 생각을 하고 계신가요?">
+                                       style="width:700px; border: none; text-align:left; background: none; outline: none; font-size: 15pt; padding: 10px;"
+                                       value="무슨 생각을 하고 계신가요?">
                             </div>
                         </c:if>
 
                         <c:if test="${sessionScope.user_num!=dto.user_num }">
                             <div style="background-color: #F0F2F5; border-radius: 60px; padding-left: 2%">
                                 <input type="button" data-toggle="modal" data-target="#contentwrite" name="contentwirte"
-                                       style="width:700px; border: none; text-align:left; background: none; outline: none; font-size: 15pt; padding: 10px;" value="${dto.user_name } 님에게 글을 남겨보세요...">
+                                       style="width:700px; border: none; text-align:left; background: none; outline: none; font-size: 15pt; padding: 10px;"
+                                       value="${dto.user_name } 님에게 글을 남겨보세요...">
                             </div>
                         </c:if>
 
@@ -2738,33 +2788,43 @@ span.content {
                         <div class="top">
                             <div class="top-user">
                                 <c:if test="${adto.type=='post' }">
-                                <div style="width: 40px; height: 40px; border-radius: 100px; margin: 10px; overflow: hidden;">
-                                    <a href="${root }/user/mypage?user_num=${dto.user_num}">
-                                    	<c:if test="${dto.user_photo!=null }">
-                                    		<img alt="" src="${root }/photo/${dto.user_photo}" style="object-fit: cover; height: 100%; width: 100%;">
-                                    	</c:if>
-                                    	
-                                    	<c:if test="${dto.user_photo==null }">
-                                    		<img alt="" src="${root }/image/noimg.png" style="object-fit: cover; height: 100%; width: 100%;">
-                                    	</c:if>
-                                    </a>
-                                </div>
+                                    <div style="width: 40px; height: 40px; border-radius: 100px; margin: 10px; overflow: hidden;">
+                                        <a href="${root }/user/mypage?user_num=${dto.user_num}">
+                                            <c:if test="${dto.user_photo!=null }">
+                                                <img alt="" src="${root }/photo/${dto.user_photo}"
+                                                     style="object-fit: cover; height: 100%; width: 100%;">
+                                            </c:if>
+
+                                            <c:if test="${dto.user_photo==null }">
+                                                <img alt="" src="${root }/image/noimg.png"
+                                                     style="object-fit: cover; height: 100%; width: 100%;">
+                                            </c:if>
+                                        </a>
+                                    </div>
                                 </c:if>
 
                                 <c:if test="${adto.type=='guest' }">
-                                <div style="width: 40px; height: 40px; border-radius: 100px; margin: 10px; overflow: hidden;">
-                                	<c:if test="${adto.dto.user_photo!=null }">
-                                    	<a href="${root }/user/mypage?user_num=${adto.dto.user_num}"><img alt="" src="${root }/photo/${adto.dto.user_photo}" style="object-fit: cover; height: 100%; width: 100%;"></a>
-                                    </c:if>
-                                    
-                                    <c:if test="${adto.dto.user_photo==null }">
-                                    	<a href="${root }/user/mypage?user_num=${adto.dto.user_num}"><img alt="" src="${root }/image/noimg.png" style="object-fit: cover; height: 100%; width: 100%;"></a>
-                                    </c:if>
-                                </div>    
+                                    <div style="width: 40px; height: 40px; border-radius: 100px; margin: 10px; overflow: hidden;">
+                                        <c:if test="${adto.dto.user_photo!=null }">
+                                            <a href="${root }/user/mypage?user_num=${adto.dto.user_num}"><img alt=""
+                                                                                                              src="${root }/photo/${adto.dto.user_photo}"
+                                                                                                              style="object-fit: cover; height: 100%; width: 100%;"></a>
+                                        </c:if>
+
+                                        <c:if test="${adto.dto.user_photo==null }">
+                                            <a href="${root }/user/mypage?user_num=${adto.dto.user_num}"><img alt=""
+                                                                                                              src="${root }/image/noimg.png"
+                                                                                                              style="object-fit: cover; height: 100%; width: 100%;"></a>
+                                        </c:if>
+                                    </div>
                                 </c:if>
                                 <div class="top-writeday">
-                                       <span><b><a href="${root }/user/mypage?user_num=${adto.dto.user_num}" style="color: black;">${adto.dto.user_name }</a><c:if test="${adto.type=='guest' }"><i class="fa-solid fa-caret-right"></i></c:if>
-                                       <a href="${root }/user/mypage?user_num=${dto.user_num}" style="color: black;">${dto.user_name }</a><br></b>
+                                       <span><b><a href="${root }/user/mypage?user_num=${adto.dto.user_num}"
+                                                   style="color: black;">${adto.dto.user_name }</a><c:if
+                                               test="${adto.type=='guest' }"><i
+                                               class="fa-solid fa-caret-right"></i></c:if>
+                                       <a href="${root }/user/mypage?user_num=${dto.user_num}"
+                                          style="color: black;">${dto.user_name }</a><br></b>
                                        ${adto.post_time }
                                        <b>
                                        <c:if test="${adto.post_access =='follower'}">
@@ -2784,11 +2844,18 @@ span.content {
                                 </div>
                                 <c:if test="${sessionScope.user_num==dto.user_num}">
                                     <div class="dropdown" style="margin-left: 70%;">
-                                        <i class="fa-solid fa-ellipsis fa-2x - 2em" data-toggle="dropdown" style=" cursor: pointer;"></i>
-                                        <ul class="dropdown-menu dropdown-menu-right" style="position: absolute; top:20px;">
-                                            <li><a href="#" class="delpost" post_num=${adto.post_num } num=${dto.user_num } type=${adto.type }>게시글 삭제</a></li>
+                                        <i class="fa-solid fa-ellipsis fa-2x - 2em" data-toggle="dropdown"
+                                           style=" cursor: pointer;"></i>
+                                        <ul class="dropdown-menu dropdown-menu-right"
+                                            style="position: absolute; top:20px;">
+                                            <li><a href="#" class="delpost"
+                                                   post_num=${adto.post_num } num=${dto.user_num } type=${adto.type }>게시글
+                                                삭제</a></li>
                                             <c:if test="${adto.type!='guest' }">
-                                                <li><a href="#" class="modpost" data-toggle="modal" data-target="#updatepost" post_num=${adto.post_num } type=${adto.type } user_num=${adto.user_num }>게시글 수정</a></li>
+                                                <li><a href="#" class="modpost" data-toggle="modal"
+                                                       data-target="#updatepost"
+                                                       post_num=${adto.post_num } type=${adto.type }
+                                                       user_num=${adto.user_num }>게시글 수정</a></li>
                                             </c:if>
                                         </ul>
                                     </div>
@@ -2796,10 +2863,16 @@ span.content {
 
                                 <c:if test="${sessionScope.user_num==adto.user_num && adto.type=='guest'}">
                                     <div class="dropdown" style="margin-left: 70%;">
-                                        <i class="fa-solid fa-ellipsis fa-2x - 2em" data-toggle="dropdown" style=" cursor: pointer;"></i>
+                                        <i class="fa-solid fa-ellipsis fa-2x - 2em" data-toggle="dropdown"
+                                           style=" cursor: pointer;"></i>
                                         <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a href="#" class="delpost" post_num=${adto.post_num } num=${dto.user_num } type=${adto.type }>게시글 삭제</a></li>
-                                            <li><a href="#" class="modpost" id="updatepost" data-toggle="modal" data-target="#updatepost" post_num=${adto.post_num } type=${adto.type } user_num=${adto.user_num }>게시글 수정</a></li>
+                                            <li><a href="#" class="delpost"
+                                                   post_num=${adto.post_num } num=${dto.user_num } type=${adto.type }>게시글
+                                                삭제</a></li>
+                                            <li><a href="#" class="modpost" id="updatepost" data-toggle="modal"
+                                                   data-target="#updatepost"
+                                                   post_num=${adto.post_num } type=${adto.type }
+                                                   user_num=${adto.user_num }>게시글 수정</a></li>
                                         </ul>
                                     </div>
                                 </c:if>
@@ -2814,12 +2887,13 @@ span.content {
                                 <c:if test="${fn:contains(adto.post_file, '.mp4')}">
                                     <div class="fileimg" style="text-align: center;">
                                         <c:if test="${adto.post_file!='no' && adto.type=='post'}">
-                                            <video src="/post_file/${adto.post_file }" controls="controls" muted="muted" 
-                                            style='width: 60%;height: 100%; margin: 0 auto;'></video>
+                                            <video src="/post_file/${adto.post_file }" controls="controls" muted="muted"
+                                                   style='width: 60%;height: 100%; margin: 0 auto;'></video>
                                         </c:if>
                                         <c:if test="${adto.post_file!='no' && adto.type=='guest'}">
-                                            <video src="/guest_file/${adto.post_file }" controls="controls" muted="muted" 
-                                            style='width: 60%;height: 100%; margin: 0 auto;'></video>
+                                            <video src="/guest_file/${adto.post_file }" controls="controls"
+                                                   muted="muted"
+                                                   style='width: 60%;height: 100%; margin: 0 auto;'></video>
                                         </c:if>
                                     </div>
                                 </c:if>
@@ -2828,8 +2902,10 @@ span.content {
                                     <c:if test="${adto.post_file!='no' && adto.type=='post'}">
                                         <c:forTokens items="${adto.post_file }" delims="," var="file">
                                             <div class="fileimg">
-                                                <a href="/post_file/${file }" target="_new" style="text-decoration: none; outline: none;">
-                                                    <img src="/post_file/${file }" style="width: 60%;height: 100%; margin: 0 auto;">
+                                                <a href="/post_file/${file }" target="_new"
+                                                   style="text-decoration: none; outline: none;">
+                                                    <img src="/post_file/${file }"
+                                                         style="width: 60%;height: 100%; margin: 0 auto;">
                                                 </a>
                                             </div>
                                         </c:forTokens>
@@ -2838,8 +2914,10 @@ span.content {
                                     <c:if test="${adto.post_file!='no' && adto.type=='guest'}">
                                         <c:forTokens items="${adto.post_file }" delims="," var="file">
                                             <div class="fileimg">
-                                                <a href="/post_file/${file }" target="_new" style="text-decoration: none; outline: none;">
-                                                    <img src="/guest_file/${file }" style="width: 60%;height: 100%; margin: 0 auto;">
+                                                <a href="/post_file/${file }" target="_new"
+                                                   style="text-decoration: none; outline: none;">
+                                                    <img src="/guest_file/${file }"
+                                                         style="width: 60%;height: 100%; margin: 0 auto;">
                                                 </a>
                                             </div>
                                         </c:forTokens>
@@ -2859,10 +2937,13 @@ span.content {
                                        <span class="bottom-left2 liketoggle" likehide1_num="likehide1${adto.post_num}"
                                              likeshow1_num="likeshow1${adto.post_num}" post_num="${adto.post_num }">
 
-                                       <span class="like" id="likehide1${adto.post_num}" likehide1_num="likehide1" ${adto.post_num}" likeshow1_num="likeshow1${adto.post_num}"
+                                       <span class="like" id="likehide1${adto.post_num}"
+                                             likehide1_num="likehide1" ${adto.post_num}" likeshow1_num="likeshow1${adto.post_num}"
                                        post_num="${adto.post_num }">
 
-                                       <span style="cursor: pointer;"> <i class="img_like fa-regular fa-thumbs-up fa-2x - 2em" post_num="${adto.post_num }" type="${adto.type }"></i></span>
+                                       <span style="cursor: pointer;"> <i
+                                               class="img_like fa-regular fa-thumbs-up fa-2x - 2em"
+                                               post_num="${adto.post_num }" type="${adto.type }"></i></span>
 
                                           <c:if test="${adto.like_count==0 }">
                                               &nbsp;좋아요
@@ -2873,8 +2954,12 @@ span.content {
                                           </c:if>
                                        </span>
 
-                                        <span class="dlike" id="likeshow1${adto.post_num}" user_num="${sessionScope.user_num}" post_num="${adto.post_num }" style="display: none;">
-                                       <span> <i class="img_dlike fa-solid fa-thumbs-up fa-2x - 2em" style="cursor: pointer; color: #3578E5;" post_num="${adto.post_num }" type="${adto.type }"></i></span>
+                                        <span class="dlike" id="likeshow1${adto.post_num}"
+                                              user_num="${sessionScope.user_num}" post_num="${adto.post_num }"
+                                              style="display: none;">
+                                       <span> <i class="img_dlike fa-solid fa-thumbs-up fa-2x - 2em"
+                                                 style="cursor: pointer; color: #3578E5;" post_num="${adto.post_num }"
+                                                 type="${adto.type }"></i></span>
                                        <c:if test="${adto.like_count==0 }">
                                            &nbsp;좋아요 회원님
                                        </c:if>
@@ -2887,12 +2972,17 @@ span.content {
                                     </c:if>
 
                                     <c:if test="${adto.likecheck !=0 }">
-                                 <span class="bottom-left2 liketoggle2" style="cursor: pointer" likehide2_num="likehide2${adto.post_num}" likeshow2_num="likeshow2${adto.post_num}"
+                                 <span class="bottom-left2 liketoggle2" style="cursor: pointer"
+                                       likehide2_num="likehide2${adto.post_num}"
+                                       likeshow2_num="likeshow2${adto.post_num}"
                                        user_num="${sessionScope.user_num}" post_num="${adto.post_num }">
 
-                                    <span id="likehide2${adto.post_num}" class="dlike" user_num="${sessionScope.user_num}" likehide1_num="likehide1${adto.post_num}"
+                                    <span id="likehide2${adto.post_num}" class="dlike"
+                                          user_num="${sessionScope.user_num}" likehide1_num="likehide1${adto.post_num}"
                                           likeshow1_num="likeshow1${adto.post_num}" post_num="${adto.post_num }">
-                                       <span> <i class="img_dlike fa-solid fa-thumbs-up fa-2x - 2em" style="color: #3578E5; cursor: pointer;" post_num="${adto.post_num }" type="${adto.type }"></i></span>
+                                       <span> <i class="img_dlike fa-solid fa-thumbs-up fa-2x - 2em"
+                                                 style="color: #3578E5; cursor: pointer;" post_num="${adto.post_num }"
+                                                 type="${adto.type }"></i></span>
                                        <c:if test="${adto.like_count!= 1}">
                                            &nbsp;좋아요 회원님 외 ${adto.like_count-1}명
                                        </c:if>
@@ -2903,8 +2993,10 @@ span.content {
 
 
 
-                                 <span user_num="${sessionScope.user_num}" id="likeshow2${adto.post_num}" class="like" post_num="${adto.post_num }" style="display: none;"> <span>
-                                 <i class="img_like fa-regular fa-thumbs-up fa-2x - 2em" post_num="${adto.post_num }" type="${adto.type }"></i>
+                                 <span user_num="${sessionScope.user_num}" id="likeshow2${adto.post_num}" class="like"
+                                       post_num="${adto.post_num }" style="display: none;"> <span>
+                                 <i class="img_like fa-regular fa-thumbs-up fa-2x - 2em" post_num="${adto.post_num }"
+                                    type="${adto.type }"></i>
                                  <c:if test="${adto.like_count== 1}">
                                      &nbsp;좋아요
                                  </c:if>
@@ -2921,7 +3013,9 @@ span.content {
 
                                 <div class="div-comment">
 
-                                    <i class="img_comment fa-regular fa-comment fa-2x - 2em" style="cursor: pointer;" user_name="${adto.user_name }" post_num="${adto.post_num }" type="${adto.type }"></i>&nbsp;댓글 ${adto.comment_count }
+                                    <i class="img_comment fa-regular fa-comment fa-2x - 2em" style="cursor: pointer;"
+                                       user_name="${adto.user_name }" post_num="${adto.post_num }"
+                                       type="${adto.type }"></i>&nbsp;댓글 ${adto.comment_count }
                                 </div>
                             </div>
 

@@ -19,7 +19,9 @@
 	</delete>
 	
 	<delete id="deleteGroup" parameterType="int">
-		delete from comment where comment_group=#{comment_group}
+		delete
+		from comment
+		where comment_group = #{comment_group}
 	</delete>
 	
 	<select id="getData" parameterType="String" resultType="CommentDto">
@@ -27,7 +29,11 @@
 	</select>
 	
 	<select id="getDataGroupStep" parameterType="Map" resultType="CommentDto">
-		select * from comment where comment_group=#{comment_group} and comment_step>#{comment_step} order by comment_step
+		select *
+		from comment
+		where comment_group = #{comment_group}
+		  and comment_step > #{comment_step}
+		order by comment_step
 	</select>
 	
 	<update id="update" parameterType="CommentDto">
@@ -45,7 +51,6 @@
 	<select id="getAllDatas"  resultType="CommentDto">
 		select * from comment 
 	</select>
-	
 	
 	<!-- 댓글 좋아요 sql문 -->
 	<insert id="insertLike" parameterType="CommentlikeDto">
@@ -72,7 +77,6 @@
 	<select id="getTotalGuestCount" resultType="int" parameterType="String">
 		select count(*) from comment where guest_num=#{guest_num}
 	</select>
-	
 	
 	<!-- 방명록 데이터 얻기 -->
 	<select id="getDataByGuestNum" resultType="GuestbookDto" parameterType="String">

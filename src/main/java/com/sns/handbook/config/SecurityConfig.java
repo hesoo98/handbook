@@ -11,10 +11,8 @@ import org.springframework.security.web.SecurityFilterChain;
 //아래 코드는 모든 요청에 대한 접근을 허용하기 때문에 보안에 문제를 일으킬 수 있다.
 @Configuration
 public class SecurityConfig {
-
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-
         http
                 .csrf().disable()
                 .authorizeRequests()
@@ -36,13 +34,3 @@ public class SecurityConfig {
  * /image/**를 해줘야 image/logobtn에 접근이 가능. /image/* 만하면 /logobtn 접근 불가.
  *
  */
-
-/*
- * 
- * 		String[] staticResources  =  {
-                "/css/**",
-                "/images/**",
-                "/fonts/**",
-                "/scripts/**",
-            };
-            */

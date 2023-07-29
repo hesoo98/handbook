@@ -12,11 +12,13 @@
     <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Stylish&family=Sunflower&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Stylish&family=Sunflower&display=swap"
+          rel="stylesheet">
     <style>
         body {
             overflow: hidden;
         }
+
         .pmain {
             display: flex;
             align-items: center;

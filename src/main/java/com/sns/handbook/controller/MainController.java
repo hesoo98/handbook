@@ -13,7 +13,6 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class MainController {
-
     /* NaverLoginBO */
     @Autowired
     private NaverLoginBO naverLoginBO;

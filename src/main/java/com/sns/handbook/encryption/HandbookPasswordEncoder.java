@@ -25,5 +25,4 @@ public class HandbookPasswordEncoder implements PasswordEncoder {
         //System.out.println("password비교한다! appconfig에서 호출");
         return encoder.matches(rawPassword, encodedPassword);
     }
-
 }

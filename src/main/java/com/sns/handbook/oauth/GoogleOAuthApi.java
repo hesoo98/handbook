@@ -3,7 +3,6 @@ package com.sns.handbook.oauth;
 import com.github.scribejava.core.builder.api.DefaultApi20;
 import org.springframework.stereotype.Component;
 
-
 @Component
 public class GoogleOAuthApi extends DefaultApi20 {
 

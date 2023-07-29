@@ -12,13 +12,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class SignupController {
-
     @Autowired
     UserService service;
 
     @Autowired
     PasswordEncoder passwordEncoder;
-
 
     @GetMapping("/signupform")
     public String signupform() {
